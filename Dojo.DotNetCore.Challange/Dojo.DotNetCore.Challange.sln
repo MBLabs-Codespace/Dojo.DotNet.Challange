@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dojo.DotNetCore.Challange.Api", "Dojo.DotNetCore.Challange.Api\Dojo.DotNetCore.Challange.Api.csproj", "{488A81A9-451D-4008-A2CC-0A4DEF41954C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dojo.DotNetCore.Challange.Front", "Dojo.DotNetCore.Challange.Console\Dojo.DotNetCore.Challange.Front.csproj", "{DB30B9BF-73B5-4B52-8662-74078204657C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{488A81A9-451D-4008-A2CC-0A4DEF41954C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{488A81A9-451D-4008-A2CC-0A4DEF41954C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{488A81A9-451D-4008-A2CC-0A4DEF41954C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{488A81A9-451D-4008-A2CC-0A4DEF41954C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB30B9BF-73B5-4B52-8662-74078204657C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB30B9BF-73B5-4B52-8662-74078204657C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB30B9BF-73B5-4B52-8662-74078204657C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB30B9BF-73B5-4B52-8662-74078204657C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE4462C3-31CC-4B6C-B013-CBD7567F5AF1}
+	EndGlobalSection
+EndGlobal
