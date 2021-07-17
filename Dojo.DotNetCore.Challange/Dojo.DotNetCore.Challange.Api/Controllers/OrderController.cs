@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dojo.DotNetCore.Challange.Api.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Dojo.DotNetCore.Challange.Api.Controllers
@@ -16,9 +15,28 @@ namespace Dojo.DotNetCore.Challange.Api.Controllers
             _streaming = streaming;
         }
 
-        public IActionResult Index()
+        [HttpPost]
+        public async Task<ActionResult<Order>> Post([FromBody] Order order)
         {
-            return View();
+            if (order == null)
+                return BadRequest();
+
+            await WriteOnStream(order);
+
+            return order;
+        }
+
+        private async Task WriteOnStream(Order data)
+        {
+            string jsonData = string.Format("{0}\n", JsonSerializer.Serialize(data));
+
+            await _streaming.Clients.All.SendAsync("ReceiveMessage", jsonData);
+
+            foreach (var client in _clients)
+            {
+                await client.WriteAsync(jsonData);
+                await client.FlushAsync();
+            }
         }
     }
 }
