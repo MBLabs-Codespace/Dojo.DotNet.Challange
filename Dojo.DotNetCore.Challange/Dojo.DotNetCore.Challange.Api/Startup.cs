@@ -19,6 +19,8 @@ namespace Dojo.DotNetCore.Challange.Api
         {
             services.AddControllers();
 
+            services.AddSignalR();
+
             services.AddDbContextPool<CoreContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("CoreContextConnection")));
         }
@@ -40,6 +42,7 @@ namespace Dojo.DotNetCore.Challange.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<OrderSender>("/chatHub");
             });
         }
     }
