@@ -31,12 +31,6 @@ namespace Dojo.DotNetCore.Challange.Api.Controllers
             string jsonData = string.Format("{0}\n", JsonSerializer.Serialize(data));
 
             await _streaming.Clients.All.SendAsync("ReceiveMessage", jsonData);
-
-            foreach (var client in _clients)
-            {
-                await client.WriteAsync(jsonData);
-                await client.FlushAsync();
-            }
         }
     }
 }
