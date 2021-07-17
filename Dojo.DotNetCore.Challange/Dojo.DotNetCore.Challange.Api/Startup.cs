@@ -1,6 +1,7 @@
 using Dojo.DotNetCore.Challange.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +21,8 @@ namespace Dojo.DotNetCore.Challange.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSignalR();
 
             services.AddDbContextPool<CoreContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("CoreContextConnection")));
@@ -42,6 +45,7 @@ namespace Dojo.DotNetCore.Challange.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<OrderSender>("/chatHub");
             });
         }
     }
