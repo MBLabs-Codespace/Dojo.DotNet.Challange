@@ -42,7 +42,7 @@ namespace Dojo.DotNetCore.Challange.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<OrderSender>("/chatHub");
+                endpoints.MapHub<OrderHub>("/chatHub");
             });
         }
     }
